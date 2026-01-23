@@ -33,20 +33,21 @@
 <script>
     const imagens = [
         // coloque aqui os nomes das fotos que estão na pasta /fotos
-        "IMG-20250129-WA0029",
-        "IMG-20250129-WA0034",
-        "IMG-20250129-WA0053"
+        "WA00295",
+        "WA00345",
+        "WA0053"
     ];
 
     const galeria = document.getElementById("fotos");
 
     imagens.forEach(nome => {
         const img = document.createElement("img");
-        img.src = "Documents/Projetolo/fotos/" + nome;
+        img.src = nome;
         img.alt = "Nossa lembrança";
         galeria.appendChild(img);
     });
 </script>
 
 </body>
+
 </html>
