@@ -32,17 +32,16 @@
 
 <script>
     const imagens = [
-        // coloque aqui os nomes das fotos que estão na pasta /fotos
-        "WA00295",
-        "WA00345",
-        "WA0053"
+        "WA00295.jpg",
+        "WA00345.jpg",
+        "WA0053.jpg"
     ];
 
     const galeria = document.getElementById("fotos");
 
     imagens.forEach(nome => {
         const img = document.createElement("img");
-        img.src = main/ + name;
+        img.src = nome; // imagens estão na raiz
         img.alt = "Nossa lembrança";
         galeria.appendChild(img);
     });
@@ -51,5 +50,6 @@
 </body>
 
 </html>
+
 
 
