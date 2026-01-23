@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(180deg, #ffb6c1, #ff4d6d);
+    background: linear-gradient(180deg, #020101, #ff4d6d);
     color: #ffffff;
     text-align: center;
 }
@@ -56,3 +56,4 @@ footer {
     font-size: 14px;
     opacity: 0.9;
 }
+
