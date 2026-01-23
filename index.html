@@ -22,12 +22,31 @@
 <section class="galeria">
     <h2>Nossos Momentos</h2>
         <div class="fotos">
-           <img src="fotos/WA00295.jpg" alt="Nossa lembrança" height="500px" width="200">
-           <img src="fotos/WA00345.jpg" alt="Nossa lembrança" height="500px" width="200">
-            <img src="fotos/WA0053.jpg" alt="Nossa lembrança" height="500px" width="200">
+           <img src="WA00295.jpg" alt="Nossa lembrança" height="500px" width="200">
+           <img src="WA00345.jpg" alt="Nossa lembrança" height="500px" width="200">
+            <img src="WA0053.jpg" alt="Nossa lembrança" height="500px" width="200">
         </div>
 </section>
+    
+    <!-- Música de fundo -->
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+</audio>
 
+<button id="btnMusica">🎵 Tocar música</button>
+
+<script>
+    const musica = document.getElementById("musica");
+    const botao = document.getElementById("btnMusica");
+
+    botao.addEventListener("click", () => {
+        musica.play();
+        botao.style.display = "none";
+    });
+</script>
+    <!-- Música de fundo -->
+    
 <footer>
     <p>Com amor Kauã❤️</p>
 </footer>
@@ -36,6 +55,7 @@
 </body>
 
 </html>
+
 
 
 
