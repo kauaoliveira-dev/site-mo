@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nossas Lembranças ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>❤️ Nossas Lembranças ❤️</h1>
+    <p>Desde <strong>20/01/2024</strong>, escrevendo nossa história juntos</p>
+</header>
+
+<section class="mensagem">
+    <p>
+        <!-- ESCREVA AQUI O TEXTO QUE VOCÊ QUER DIZER PRA ELA -->
+    </p>
+</section>
+
+<section class="galeria">
+    <h2>Nossos Momentos</h2>
+    <div class="fotos" id="fotos">
+        <!-- As fotos vão aparecer aqui -->
+    </div>
+</section>
+
+<footer>
+    <p>Com amor Kauã❤️</p>
+</footer>
+
+<script>
+    const imagens = [
+        // coloque aqui os nomes das fotos que estão na pasta /fotos
+        "IMG-20250129-WA0029",
+        "IMG-20250129-WA0034",
+        "IMG-20250129-WA0053"
+    ];
+
+    const galeria = document.getElementById("fotos");
+
+    imagens.forEach(nome => {
+        const img = document.createElement("img");
+        img.src = "Documents/Projetolo/fotos/" + nome;
+        img.alt = "Nossa lembrança";
+        galeria.appendChild(img);
+    });
+</script>
+
+</body>
+</html>
