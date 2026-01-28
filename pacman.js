@@ -3,14 +3,92 @@ const ctx = canvas.getContext("2d");
 
 let pacman = { x: 150, y: 150, size: 15, dx: 0, dy: 0 };
 let comida = { x: 100, y: 100, size: 5 };
+const tileSize = 30;
 
-function desenharPacman() {
-    ctx.beginPath();
-    ctx.arc(pacman.x, pacman.y, pacman.size, 0.2 * Math.PI, 1.8 * Math.PI);
-    ctx.lineTo(pacman.x, pacman.y);
-    ctx.fillStyle = "yellow";
-    ctx.fill();
+const avatar = new Image();
+avatar.src = "avatar.png";
+
+
+const mapa = [
+  [1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,0,0,0,1],
+  [1,0,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,1,0,1],
+  [1,1,1,1,0,1,0,1,0,1],
+  [1,0,0,0,0,1,0,0,0,1],
+  [1,0,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1]
+];
+
+function desenharMapa() {
+  for (let y = 0; y < mapa.length; y++) {
+    for (let x = 0; x < mapa[y].length; x++) {
+      if (mapa[y][x] === 1) {
+        ctx.fillStyle = "#0ff";
+        ctx.fillRect(
+          x * tileSize,
+          y * tileSize,
+          tileSize,
+          tileSize
+        );
+      }
+    }
+  }
 }
+
+let player = {
+  x: 1,
+  y: 1,
+  dx: 0,
+  dy: 0
+};
+
+function podeMover(nx, ny) {
+  return mapa[ny][nx] === 0;
+}
+
+function moverJogador() {
+  const nx = player.x + player.dx;
+  const ny = player.y + player.dy;
+
+  if (podeMover(nx, ny)) {
+    player.x = nx;
+    player.y = ny;
+  }
+}
+
+function desenharJogador() {
+  ctx.drawImage(
+    avatar,
+    player.x * tileSize,
+    player.y * tileSize,
+    tileSize,
+    tileSize
+  );
+}
+document.addEventListener("keydown", e => {
+  player.dx = 0;
+  player.dy = 0;
+
+  if (e.key === "ArrowUp") player.dy = -1;
+  if (e.key === "ArrowDown") player.dy = 1;
+  if (e.key === "ArrowLeft") player.dx = -1;
+  if (e.key === "ArrowRight") player.dx = 1;
+});
+
+function loop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  desenharMapa();
+  moverJogador();
+  desenharJogador();
+
+  requestAnimationFrame(loop);
+}
+
+loop();
+
 
 function desenharComida() {
     ctx.beginPath();
